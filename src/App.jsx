@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+// Components
+
+import ASOD from "./components/ASOD";
 
 const App = () => {
   return (
-    <div>
-      <h1 className='text-3xl font-bold text-center underline'>Hello World</h1>
-    </div>
-  )
-}
+    <div data-theme='business' className="bg-neutral text-neutral-content">
+      <h1 className="text-3xl font-bold text-center underline">Planetarium</h1>
 
-export default App
+      <ASOD />
+    </div>
+  );
+};
+
+export default App;
