@@ -7,10 +7,11 @@ import ASOD from "./components/ASOD";
 
 const App = () => {
   return (
-    <div data-theme='business' className="bg-neutral text-neutral-content">
-      <h1 className="text-3xl font-bold text-center underline">Planetarium</h1>
-
-      <ASOD />
+    <div data-theme="business" className="bg-neutral text-neutral-content">
+      <h1 className="text-5xl font-bold text-center">Planetarium</h1>
+      <div className="mx-auto my-auto p-4">
+        <ASOD />
+      </div>
     </div>
   );
 };
