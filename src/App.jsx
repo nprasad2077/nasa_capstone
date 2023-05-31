@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // Components
-
 import ASOD from "./components/ASOD";
+import Asteroid from "./components/Asteroid";
 
 const App = () => {
   return (
@@ -17,6 +17,7 @@ const App = () => {
 
       <div className="mx-auto my-auto p-4 w-full">
         <ASOD />
+        <Asteroid />
       </div>
     </div>
   );
