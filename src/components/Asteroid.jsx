@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Asteroid = () => {
+  // Today's date for accessing daily asteroids
   const today = new Date().toISOString().slice(0, 10);
   const [neo, setNeo] = useState({});
 
+  // Fetch near earth object data from NASA (asteroids)
   const getAsteroid = async () => {
     try {
       const response = await axios.get(
@@ -24,6 +26,7 @@ const Asteroid = () => {
 
   const asteroids = neo["near_earth_objects"] && neo["near_earth_objects"][today];
 
+  // Map each asteroid data point to the table to display the name, size, hazard status, and approach time to the user. 
   const asteroidTable = asteroids && asteroids.map((asteroid, index) => {
     return (
       <tr key={index}>
