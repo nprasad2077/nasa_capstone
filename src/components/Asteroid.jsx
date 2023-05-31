@@ -29,7 +29,7 @@ const Asteroid = () => {
       <tr key={index}>
         <td>{asteroid.name}</td>
         <td>
-          {asteroid.estimated_diameter.miles.estimated_diameter_max} miles
+          {asteroid.estimated_diameter.miles.estimated_diameter_max.toFixed(3)} miles
         </td>
         <td>{asteroid.is_potentially_hazardous_asteroid ? "☢️" : "❎"}</td>
         <td>{asteroid.close_approach_data[0].close_approach_date_full}</td>
@@ -37,11 +37,8 @@ const Asteroid = () => {
     );
   });
 
-  console.log(neo);
-  console.log(asteroids);
-
   return (
-    <div className="overflow-x-auto mt-8" data-theme="business">
+    <div className="overflow-x-auto" data-theme="business">
       <table className="table table-zebra w-full text-center items-center justify-center">
         {/* head */}
         <thead>

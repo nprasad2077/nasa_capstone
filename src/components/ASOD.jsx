@@ -49,12 +49,12 @@ const ASOD = () => {
   }, [asod]);
 
   return (
-    <div className="card w-auto bg-base-100 text-neutral-content">
+    <div className="card bg-base-100 text-neutral-content">
       <h1 className="text-center font-semibold antialiased text-3xl mt-4">
         {asod.title}
       </h1>
       <figure className="px-10 pt-10">{media}</figure>
-      <div className="card-body items-center text-center w-auto">
+      <div className="card-body items-center text-center">
         <p>{asod.explanation}</p>
       </div>
     </div>
