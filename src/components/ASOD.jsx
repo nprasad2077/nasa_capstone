@@ -5,6 +5,7 @@ const ASOD = () => {
   const [asod, setAsod] = useState({});
   const [media, setMedia] = useState(null);
 
+  // Fetch ASOD media
   const getAsod = async () => {
     try {
       const response = await axios.get(
@@ -22,6 +23,8 @@ const ASOD = () => {
     getAsod();
   }, []);
 
+
+// If media type is video, set DOM element to video, if picture then set to Img. (re)executes when ASOD loads in.
   useEffect(() => {
     if (asod.media_type === "video") {
       setMedia(
