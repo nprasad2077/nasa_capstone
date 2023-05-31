@@ -23,8 +23,7 @@ const ASOD = () => {
     getAsod();
   }, []);
 
-
-// If media type is video, set DOM element to video, if picture then set to Img. (re)executes when ASOD loads in.
+  // If media type is video, set DOM element to video, if picture then set to Img. (re)executes when ASOD loads in.
   useEffect(() => {
     if (asod.media_type === "video") {
       setMedia(
