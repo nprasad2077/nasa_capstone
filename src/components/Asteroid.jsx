@@ -41,7 +41,7 @@ const Asteroid = () => {
   });
 
   return (
-    <div className="overflow-x-auto" data-theme="business">
+    <div className="overflow-x-auto" data-theme="night">
       <table className="table table-zebra w-full text-center items-center justify-center">
         {/* head */}
         <thead>

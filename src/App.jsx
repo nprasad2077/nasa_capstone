@@ -8,11 +8,11 @@ import Asteroid from "./components/Asteroid";
 const App = () => {
   return (
     <div
-      data-theme="business"
+      data-theme="night"
       className="bg-neutral text-neutral-content min-h-screen"
     >
-      <div className="m-auto">
-        <h1 className="text-5xl font-bold text-center">Planetarium</h1>
+      <div >
+        <h1 className="text-5xl font-bold text-center p-4">Planetarium</h1>
       </div>
 
       <div className="mx-auto my-auto p-4 w-full flex flex-row gap-4 mt-4">
