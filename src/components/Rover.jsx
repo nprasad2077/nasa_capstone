@@ -6,7 +6,8 @@ import "react-image-gallery/styles/css/image-gallery.css";
 const Rover = () => {
   const [rover, setRover] = useState({});
   const sol = 3403;
-  const [images, setImages] = useState([])
+  const [images, setImages] = useState([]);
+  const [imageDisplay, setImageDisplay] = useState("invisibile")
 
   const getRover = async () => {
     try {
@@ -25,14 +26,14 @@ const Rover = () => {
     getRover();
   }, []);
 
-  useEffect(() => {
-    if (rover.photos) {
-      const fhazCAMImages = rover.photos
-        .filter((rov) => rov.camera.name === "FHAZ")
-        .map((fhaz) => ({ original: fhaz.img_src, thumbnail: fhaz.img_src }));
-      setImages(fhazCAMImages);
-    }
-  }, [rover.photos]);
+  // useEffect(() => {
+  //   if (rover.photos) {
+  //     const fhazCAMImages = rover.photos
+  //       .filter((rov) => rov.camera.name === "FHAZ")
+  //       .map((fhaz) => ({ original: fhaz.img_src, thumbnail: fhaz.img_src }));
+  //     setImages(fhazCAMImages);
+  //   }
+  // }, [rover.photos]);
 
   const mastCAM =
     rover.photos && rover.photos.filter((rov) => rov.camera.name === "MAST");
@@ -58,9 +59,14 @@ const Rover = () => {
   const mahliCAM =
     rover.photos && rover.photos.filter((rov) => rov.camera.name === "MAHLI");
 
-  console.log(chemCAM, navCAM, fhazCAM);
+  const roverClick = (e) => {
+    console.log(e.target.name);
+    if (e.target.name === 'FHAZ') {
+      setImages(fhazCAM)
+    }
+  }
 
-  console.log(images);
+  console.log(imageDisplay);
 
   return (
     <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
@@ -77,7 +83,15 @@ const Rover = () => {
           height="450"
           allowFullScreen
         ></iframe>
-        <ImageGallery items={images} autoPlay={true} />
+        <div className="flex flex-row text-center items-center justify-center gap-2 p-4">
+          <button onClick={roverClick} name="FHAZ" class="btn btn-outline btn-info">FHAZ CAM</button>
+          <button onClick={roverClick} name="NAVCAM" class="btn btn-outline btn-success">NAVCAM</button>
+          <button onClick={roverClick} name="CHEMCAM" class="btn btn-outline btn-warning">CHEMCAM</button>
+          <button onClick={roverClick} name="MAST" class="btn btn-outline btn-error">MAST CAM</button>
+        </div>
+        <div className={'visible'}>
+          <ImageGallery items={images} autoPlay={false} />
+        </div>
       </div>
     </div>
   );
