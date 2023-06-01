@@ -9,6 +9,7 @@ const Rover = () => {
   const [images, setImages] = useState([]);
   const [imageDisplay, setImageDisplay] = useState(false);
 
+  // Fetch Curiosity rover data
   const getRover = async () => {
     try {
       const response = await axios.get(
@@ -26,6 +27,7 @@ const Rover = () => {
     getRover();
   }, []);
 
+  // Filter by rover camera type, then map to a data structure acceptable for react-image-gallery.
   const fhazCAM =
     rover.photos &&
     rover.photos
@@ -50,6 +52,8 @@ const Rover = () => {
       .filter((rov) => rov.camera.name === "NAVCAM")
       .map((rov) => ({ original: rov.img_src, thumbnail: rov.img_src }));
 
+  
+  // Camera button click function. When camera button is pressed, then display react-image-carousel containing the selected pictures.
   const roverClick = (e) => {
     if (e.target.name === "FHAZ") {
       setImages(fhazCAM);

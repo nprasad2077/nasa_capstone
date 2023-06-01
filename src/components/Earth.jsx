@@ -4,6 +4,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 const Earth = () => {
+    // Get yesterday's date in a format suitable for the API call.
   let epicDate = ((d) => new Date(d.setDate(d.getDate() - 2)))(new Date())
     .toISOString()
     .slice(0, 10);
@@ -12,6 +13,7 @@ const Earth = () => {
   const [earth, setEarth] = useState([]);
   const [images, setImages] = useState([]);
 
+// Fetch earth images by date.
   const getEarth = async () => {
     try {
       const response = await axios.get(
@@ -27,6 +29,7 @@ const Earth = () => {
     getEarth();
   }, []);
 
+  // Map out images in a data structure suitable for react-image-gallery.
   useEffect(() => {
     const imagesData = earth.map((img) => ({
       original: `https://epic.gsfc.nasa.gov/archive/natural/${date}/png/${img.image}.png`,
