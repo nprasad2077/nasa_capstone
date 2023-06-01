@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const Rover = () => {
   const [rover, setRover] = useState({});
   const sol = 3403;
+  const [images, setImages] = useState([])
 
   const getRover = async () => {
     try {
@@ -22,6 +25,15 @@ const Rover = () => {
     getRover();
   }, []);
 
+  useEffect(() => {
+    if (rover.photos) {
+      const fhazCAMImages = rover.photos
+        .filter((rov) => rov.camera.name === "FHAZ")
+        .map((fhaz) => ({ original: fhaz.img_src, thumbnail: fhaz.img_src }));
+      setImages(fhazCAMImages);
+    }
+  }, [rover.photos]);
+
   const mastCAM =
     rover.photos && rover.photos.filter((rov) => rov.camera.name === "MAST");
 
@@ -35,7 +47,10 @@ const Rover = () => {
     rover.photos && rover.photos.filter((rov) => rov.camera.name === "NAVCAM");
 
   const fhazCAM =
-    rover.photos && rover.photos.filter((rov) => rov.camera.name === "FHAZ");
+    rover.photos &&
+    rover.photos
+      .filter((rov) => rov.camera.name === "FHAZ")
+      .map((fhaz) => ({ original: fhaz.img_src, thumbnail: fhaz.img_src }));
 
   const rhazCAM =
     rover.photos && rover.photos.filter((rov) => rov.camera.name === "RHAZ");
@@ -43,7 +58,9 @@ const Rover = () => {
   const mahliCAM =
     rover.photos && rover.photos.filter((rov) => rov.camera.name === "MAHLI");
 
-  console.log(chemCAM, navCAM);
+  console.log(chemCAM, navCAM, fhazCAM);
+
+  console.log(images);
 
   return (
     <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
@@ -60,6 +77,7 @@ const Rover = () => {
           height="450"
           allowFullScreen
         ></iframe>
+        <ImageGallery items={images} autoPlay={true} />
       </div>
     </div>
   );
