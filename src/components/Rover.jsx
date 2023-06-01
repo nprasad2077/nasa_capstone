@@ -7,7 +7,7 @@ const Rover = () => {
   const [rover, setRover] = useState({});
   const sol = 3403;
   const [images, setImages] = useState([]);
-  const [imageDisplay, setImageDisplay] = useState("invisibile")
+  const [imageDisplay, setImageDisplay] = useState(false);
 
   const getRover = async () => {
     try {
@@ -26,45 +26,23 @@ const Rover = () => {
     getRover();
   }, []);
 
-  // useEffect(() => {
-  //   if (rover.photos) {
-  //     const fhazCAMImages = rover.photos
-  //       .filter((rov) => rov.camera.name === "FHAZ")
-  //       .map((fhaz) => ({ original: fhaz.img_src, thumbnail: fhaz.img_src }));
-  //     setImages(fhazCAMImages);
-  //   }
-  // }, [rover.photos]);
-
-  const mastCAM =
-    rover.photos && rover.photos.filter((rov) => rov.camera.name === "MAST");
-
-  const chemCAM =
-    rover.photos && rover.photos.filter((rov) => rov.camera.name === "CHEMCAM");
-
-  const mardiCAM =
-    rover.photos && rover.photos.filter((rov) => rov.camera.name === "MARDI");
-
-  const navCAM =
-    rover.photos && rover.photos.filter((rov) => rov.camera.name === "NAVCAM");
-
   const fhazCAM =
     rover.photos &&
     rover.photos
       .filter((rov) => rov.camera.name === "FHAZ")
       .map((fhaz) => ({ original: fhaz.img_src, thumbnail: fhaz.img_src }));
 
-  const rhazCAM =
-    rover.photos && rover.photos.filter((rov) => rov.camera.name === "RHAZ");
-
-  const mahliCAM =
-    rover.photos && rover.photos.filter((rov) => rov.camera.name === "MAHLI");
-
   const roverClick = (e) => {
     console.log(e.target.name);
-    if (e.target.name === 'FHAZ') {
-      setImages(fhazCAM)
+    if (e.target.name === "FHAZ") {
+      setImages(fhazCAM);
+      if (imageDisplay === true) {
+        setImageDisplay(false);
+      } else {
+        setImageDisplay(true);
+      }
     }
-  }
+  };
 
   console.log(imageDisplay);
 
@@ -84,14 +62,40 @@ const Rover = () => {
           allowFullScreen
         ></iframe>
         <div className="flex flex-row text-center items-center justify-center gap-2 p-4">
-          <button onClick={roverClick} name="FHAZ" class="btn btn-outline btn-info">FHAZ CAM</button>
-          <button onClick={roverClick} name="NAVCAM" class="btn btn-outline btn-success">NAVCAM</button>
-          <button onClick={roverClick} name="CHEMCAM" class="btn btn-outline btn-warning">CHEMCAM</button>
-          <button onClick={roverClick} name="MAST" class="btn btn-outline btn-error">MAST CAM</button>
+          <button
+            onClick={roverClick}
+            name="FHAZ"
+            className="btn btn-outline btn-info"
+          >
+            FHAZ CAM
+          </button>
+          <button
+            onClick={roverClick}
+            name="NAVCAM"
+            className="btn btn-outline btn-success"
+          >
+            NAVCAM
+          </button>
+          <button
+            onClick={roverClick}
+            name="CHEMCAM"
+            className="btn btn-outline btn-warning"
+          >
+            CHEMCAM
+          </button>
+          <button
+            onClick={roverClick}
+            name="MAST"
+            className="btn btn-outline btn-error"
+          >
+            MAST CAM
+          </button>
         </div>
-        <div className={'visible'}>
-          <ImageGallery items={images} autoPlay={false} />
-        </div>
+        {imageDisplay && (
+          <div className="visible">
+            <ImageGallery items={images} autoPlay={false} />
+          </div>
+        )}
       </div>
     </div>
   );
