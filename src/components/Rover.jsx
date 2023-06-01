@@ -51,7 +51,6 @@ const Rover = () => {
       .map((rov) => ({ original: rov.img_src, thumbnail: rov.img_src }));
 
   const roverClick = (e) => {
-    console.log(e.target.name);
     if (e.target.name === "FHAZ") {
       setImages(fhazCAM);
       if (imageDisplay === true) {
@@ -85,7 +84,8 @@ const Rover = () => {
       }
     }
   };
-  
+
+
   return (
     <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
       <h2 className="text-center font-semibold antialiased text-3xl mt-4 text-orange-500">

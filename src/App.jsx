@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ASOD from "./components/ASOD";
 import Asteroid from "./components/Asteroid";
 import Rover from "./components/Rover";
+import Earth from "./components/Earth";
 
 const App = () => {
   return (
@@ -28,6 +29,9 @@ const App = () => {
 
       {/* Second Row */}
       <div className="mx-auto my-auto p-4 w-full flex flex-row gap-4">
+        <div className="basis-1/2">
+          <Earth />
+        </div>
         <div className="basis-1/2">
           <Asteroid />
         </div>
