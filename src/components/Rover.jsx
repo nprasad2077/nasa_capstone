@@ -5,7 +5,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 const Rover = () => {
   const [rover, setRover] = useState({});
-  const sol = 3403;
+  const sol = 3473;
   const [images, setImages] = useState([]);
   const [imageDisplay, setImageDisplay] = useState(false);
 
@@ -32,6 +32,24 @@ const Rover = () => {
       .filter((rov) => rov.camera.name === "FHAZ")
       .map((fhaz) => ({ original: fhaz.img_src, thumbnail: fhaz.img_src }));
 
+  const mastCAM =
+    rover.photos &&
+    rover.photos
+      .filter((rov) => rov.camera.name === "MAST")
+      .map((rov) => ({ original: rov.img_src, thumbnail: rov.img_src }));
+
+  const chemCAM =
+    rover.photos &&
+    rover.photos
+      .filter((rov) => rov.camera.name === "CHEMCAM")
+      .map((rov) => ({ original: rov.img_src, thumbnail: rov.img_src }));
+
+  const navCAM =
+    rover.photos &&
+    rover.photos
+      .filter((rov) => rov.camera.name === "NAVCAM")
+      .map((rov) => ({ original: rov.img_src, thumbnail: rov.img_src }));
+
   const roverClick = (e) => {
     console.log(e.target.name);
     if (e.target.name === "FHAZ") {
@@ -42,10 +60,32 @@ const Rover = () => {
         setImageDisplay(true);
       }
     }
+    if (e.target.name === "MAST") {
+      setImages(mastCAM);
+      if (imageDisplay === true) {
+        setImageDisplay(false);
+      } else {
+        setImageDisplay(true);
+      }
+    }
+    if (e.target.name === "CHEMCAM") {
+      setImages(chemCAM);
+      if (imageDisplay === true) {
+        setImageDisplay(false);
+      } else {
+        setImageDisplay(true);
+      }
+    }
+    if (e.target.name === "NAVCAM") {
+      setImages(navCAM);
+      if (imageDisplay === true) {
+        setImageDisplay(false);
+      } else {
+        setImageDisplay(true);
+      }
+    }
   };
-
-  console.log(imageDisplay);
-
+  
   return (
     <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
       <h2 className="text-center font-semibold antialiased text-3xl mt-4 text-orange-500">
@@ -93,10 +133,33 @@ const Rover = () => {
         </div>
         {imageDisplay && (
           <div className="visible">
-            <ImageGallery items={images} autoPlay={false} />
+            <div className="carousel-container">
+              <ImageGallery
+                items={images}
+                autoPlay={false}
+                showPlayButton={false}
+                showFullscreenButton={false}
+              />
+            </div>
           </div>
         )}
       </div>
+      <style>
+        {`
+          .carousel-container {
+            width: 100%;
+            max-width: 720px; /* Adjust the max-width as needed */
+            margin: 0 auto;
+          }
+
+          .carousel-container .image-gallery-slide img {
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 450px; /* Adjust the max-height as needed */
+            margin: 0 auto;
+          }
+        `}
+      </style>
     </div>
   );
 };
