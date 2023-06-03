@@ -90,6 +90,10 @@ const Rover = () => {
     }
   };
 
+  const hideButton = () => {
+    setImageDisplay(false)
+  }
+
 
   return (
     <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
@@ -145,6 +149,7 @@ const Rover = () => {
                 showPlayButton={false}
                 showFullscreenButton={false}
               />
+              <button onClick={hideButton} className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md my-4 w-1/2 self-center" data-theme='night'>Hide</button>
             </div>
           </div>
         )}
