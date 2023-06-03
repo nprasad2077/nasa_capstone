@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 // Components
 import ASOD from "./components/ASOD";
 import Asteroid from "./components/Asteroid";
 import Rover from "./components/Rover";
 import Earth from "./components/Earth";
-import NavHeader from "./components/NavHeader"
+import NavHeader from "./components/NavHeader";
 
 const App = () => {
   return (
@@ -14,10 +14,7 @@ const App = () => {
       data-theme="night"
       className="bg-neutral text-neutral-content min-h-screen"
     >
-      <div>
-        {/* <h1 className="text-5xl font-bold text-center p-4">Planetarium</h1> */}
-        <NavHeader />
-      </div>
+      <NavHeader />
 
       {/* First Row */}
       <div className="mx-auto my-auto p-4 w-full flex flex-row gap-4 mt-4">

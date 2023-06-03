@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 const NavHeader = () => {
   return (
@@ -26,7 +27,7 @@ const NavHeader = () => {
             class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <a>Globe</a>
             </li>
             <li>
               <a>Parent</a>
@@ -40,7 +41,10 @@ const NavHeader = () => {
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>Favorites</a>
+            </li>
+            <li>
+              <a>Media Library</a>
             </li>
           </ul>
         </div>
@@ -49,7 +53,7 @@ const NavHeader = () => {
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <a>Globe</a>
           </li>
           {/* <li tabindex="0">
             <details>
@@ -65,7 +69,10 @@ const NavHeader = () => {
             </details>
           </li> */}
           <li>
-            <a>Item 3</a>
+            <a>Favorites</a>
+          </li>
+          <li>
+            <a>Media Library</a>
           </li>
         </ul>
       </div>

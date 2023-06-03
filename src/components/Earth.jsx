@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import '../styles/Earth.css'
 
 const Earth = () => {
     // Get yesterday's date in a format suitable for the API call.
@@ -64,21 +65,6 @@ const Earth = () => {
           </div>
         </div>
       </div>
-      <style>
-        {`
-          .image-gallery-earth {
-            max-width: 100%;
-            height: auto;
-          }
-
-          .image-gallery-slide img {
-            object-fit: contain;
-            max-width: 100%;
-            max-height: 400px; /* Adjust the max-height as needed */
-            margin: 0 auto;
-          }
-        `}
-      </style>
     </div>
   );
 };

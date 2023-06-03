@@ -24,6 +24,7 @@ const Asteroid = () => {
     getAsteroid();
   }, []);
 
+  // Get asteroid objects for today's date.
   const asteroids =
     neo["near_earth_objects"] && neo["near_earth_objects"][today];
 
