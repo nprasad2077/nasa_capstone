@@ -48,7 +48,7 @@ const Asteroid = () => {
     });
 
   return (
-    <div className="card bg-base-100 text-neutral-content mx-auto">
+    <div className="card bg-base-100 text-neutral-content mx-auto w-full">
       <h1 className="text-center font-semibold antialiased text-3xl mt-4">
         Asteroid Watch
       </h1>
