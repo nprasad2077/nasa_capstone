@@ -2,10 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 // Components
-import ASOD from "./components/ASOD";
-import Asteroid from "./components/Asteroid";
-import Rover from "./components/Rover";
-import Earth from "./components/Earth";
 import NavHeader from "./components/NavHeader";
 import Globe from "./components/Globe";
 import Favorites from "./components/Favorites";
