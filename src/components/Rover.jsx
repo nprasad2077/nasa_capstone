@@ -91,7 +91,7 @@ const Rover = () => {
         {/* 3D Mars Rover model */}
         <iframe
           title="Perseverance Rover 3D model"
-          className="object-scale-down p-4"
+          className="object-scale-down p-6 m-2"
           src="https://mars.nasa.gov/layout/embed/model/?s=6"
           width="720"
           height="450"
