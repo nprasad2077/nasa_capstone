@@ -51,9 +51,15 @@ const NavHeader = () => {
         <a class="btn btn-ghost normal-case text-4xl">Planetarium</a>
       </div>
       <div class="navbar-end">
-        <ul>
+        <ul className="flex flex-row">
           <li>
             <Link className="btn btn-ghost normal-case">Globe</Link>
+          </li>
+          <li>
+            <Link className="btn btn-ghost normal-case">Favorites</Link>
+          </li>
+          <li>
+            <Link className="btn btn-ghost normal-case">Media Library</Link>
           </li>
         </ul>
       </div>
