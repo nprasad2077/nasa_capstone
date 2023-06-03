@@ -38,8 +38,8 @@ const Favorites = () => {
   }
 
   return (
-    <div className="text-center font-sans">
-      <Grid images={images} mode="auto" width={800} height={900} />
+    <div className="text-center font-sans flex items-center justify-center h-screen w-screen">
+      <Grid images={images} mode="auto" width='100%' height='100%' />
     </div>
   );
 };
