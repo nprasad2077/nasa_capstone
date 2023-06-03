@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import '../styles/Rover.css'
+import "../styles/Rover.css";
 
 const Rover = () => {
   const [rover, setRover] = useState({});
@@ -53,47 +53,29 @@ const Rover = () => {
       .filter((rov) => rov.camera.name === "NAVCAM")
       .map((rov) => ({ original: rov.img_src, thumbnail: rov.img_src }));
 
-  
   // Camera button click function. When camera button is pressed, then display react-image-carousel containing the selected pictures.
   const roverClick = (e) => {
     if (e.target.name === "FHAZ") {
       setImages(fhazCAM);
-      if (imageDisplay === true) {
-        setImageDisplay(false);
-      } else {
-        setImageDisplay(true);
-      }
+      setImageDisplay(true)
     }
     if (e.target.name === "MAST") {
       setImages(mastCAM);
-      if (imageDisplay === true) {
-        setImageDisplay(false);
-      } else {
-        setImageDisplay(true);
-      }
+      setImageDisplay(true)
     }
     if (e.target.name === "CHEMCAM") {
       setImages(chemCAM);
-      if (imageDisplay === true) {
-        setImageDisplay(false);
-      } else {
-        setImageDisplay(true);
-      }
+      setImageDisplay(true)
     }
     if (e.target.name === "NAVCAM") {
       setImages(navCAM);
-      if (imageDisplay === true) {
-        setImageDisplay(false);
-      } else {
-        setImageDisplay(true);
-      }
+      setImageDisplay(true)
     }
   };
 
   const hideButton = () => {
-    setImageDisplay(false)
-  }
-
+    setImageDisplay(false);
+  };
 
   return (
     <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
@@ -149,7 +131,13 @@ const Rover = () => {
                 showPlayButton={false}
                 showFullscreenButton={false}
               />
-              <button onClick={hideButton} className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md my-4 w-1/2 self-center" data-theme='night'>Hide</button>
+              <button
+                onClick={hideButton}
+                className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md my-4 w-1/2 self-center"
+                data-theme="night"
+              >
+                Hide
+              </button>
             </div>
           </div>
         )}
