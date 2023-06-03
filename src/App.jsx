@@ -7,6 +7,10 @@ import Asteroid from "./components/Asteroid";
 import Rover from "./components/Rover";
 import Earth from "./components/Earth";
 import NavHeader from "./components/NavHeader";
+import Globe from "./components/Globe";
+import Favorites from "./components/Favorites";
+import MediaPlayer from "./components/MediaPlayer";
+import Home from './components/Home'
 
 const App = () => {
   return (
@@ -16,25 +20,13 @@ const App = () => {
     >
       <NavHeader />
 
-      {/* First Row */}
-      <div className="mx-auto my-auto p-4 w-full flex flex-row gap-4 mt-4">
-        <div className="basis-1/2">
-          <ASOD />
-        </div>
-        <div className="basis-1/2">
-          <Rover />
-        </div>
-      </div>
-
-      {/* Second Row */}
-      <div className="mx-auto my-auto p-4 w-full flex flex-row gap-4">
-        <div className="basis-1/2">
-          <Earth />
-        </div>
-        <div className="basis-1/2">
-          <Asteroid />
-        </div>
-      </div>
+      {/* Routes*/}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path="/globe" element={<Globe />} />
+        <Route path="/media" element={<MediaPlayer />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
     </div>
   );
 };
