@@ -1,8 +1,9 @@
 import React from 'react'
+import { Viewer } from 'resium'
 
 const Globe = () => {
   return (
-    <div>Globe</div>
+    <div><Viewer /></div>
   )
 }
 
