@@ -5,9 +5,13 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "../styles/Rover.css";
 
 const Rover = () => {
+  // State for fetching rover data
   const [rover, setRover] = useState({});
+  // Rover date in mars years (sol).
   const sol = 3473;
+  // State for holding rover images in carousel.
   const [images, setImages] = useState([]);
+  // Conditional rendering to show carousel based on button click.
   const [imageDisplay, setImageDisplay] = useState(false);
 
   // Fetch Curiosity rover data
@@ -73,6 +77,7 @@ const Rover = () => {
     }
   };
 
+  // Hide carousel button.
   const hideButton = () => {
     setImageDisplay(false);
   };
@@ -136,7 +141,7 @@ const Rover = () => {
                 className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md my-4 w-1/2 self-center"
                 data-theme="night"
               >
-                Hide
+                HIDE
               </button>
             </div>
           </div>
