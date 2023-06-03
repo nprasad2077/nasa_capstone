@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import '../styles/Rover.css'
 
 const Rover = () => {
   const [rover, setRover] = useState({});
@@ -148,22 +149,6 @@ const Rover = () => {
           </div>
         )}
       </div>
-      <style>
-        {`
-          .carousel-container {
-            width: 100%;
-            max-width: 720px; /* Adjust the max-width as needed */
-            margin: 0 auto;
-          }
-
-          .carousel-container .image-gallery-slide img {
-            object-fit: contain;
-            max-width: 100%;
-            max-height: 450px; /* Adjust the max-height as needed */
-            margin: 0 auto;
-          }
-        `}
-      </style>
     </div>
   );
 };
