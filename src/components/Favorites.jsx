@@ -4,9 +4,12 @@ import { Grid } from "react-visual-grid";
 import "react-visual-grid/dist/react-visual-grid.css";
 
 const Favorites = () => {
+  // State to hold favorites image data
   const [favorites, setFavorites] = useState([]);
+  // Loading state for images component. Will load once data has arrived.
   const [loading, setLoading] = useState(true);
 
+  // Fetch list of favorites images.
   const getFavorites = async () => {
     try {
       const response = await axios.get(
@@ -23,6 +26,7 @@ const Favorites = () => {
     getFavorites();
   }, []);
 
+  // Filter data to extract image links and map to data structure suitable for Grid component.
   const images =
     favorites.length > 0
       ? favorites
@@ -33,13 +37,14 @@ const Favorites = () => {
           }))
       : [];
 
+  // Loading progress bar
   if (loading) {
-    return <progress className="progress w-56"></progress>;
+    return <progress data-theme="night" className="progress w-72"></progress>;
   }
 
   return (
     <div className="text-center font-sans flex items-center justify-center h-screen w-screen">
-      <Grid images={images} mode="auto" width='100%' height='100%' />
+      <Grid images={images} mode="auto" width="100%" height="100%" />
     </div>
   );
 };
