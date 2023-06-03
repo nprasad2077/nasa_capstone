@@ -1,10 +1,10 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const NavHeader = () => {
   return (
     <div class="navbar bg-base-100">
-      <div class="navbar-start">
+      <div class="navbar-start my-2">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
             <svg
@@ -24,7 +24,7 @@ const NavHeader = () => {
           </label>
           <ul
             tabindex="0"
-            class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            class="menu menu-sm dropdown-content mt-3 p-z shadow bg-base-100 rounded-box w-52"
           >
             <li>
               <a>Globe</a>
@@ -48,38 +48,14 @@ const NavHeader = () => {
             </li>
           </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-2xl">Planetarium</a>
-      </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
-          <li>
-            <a>Globe</a>
-          </li>
-          {/* <li tabindex="0">
-            <details>
-              <summary>Parent</summary>
-              <ul class="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li> */}
-          <li>
-            <a>Favorites</a>
-          </li>
-          <li>
-            <a>Media Library</a>
-          </li>
-        </ul>
+        <a class="btn btn-ghost normal-case text-4xl">Planetarium</a>
       </div>
       <div class="navbar-end">
-        {/* <a class="btn">Button</a> */}
-        <Link></Link>
-        
+        <ul>
+          <li>
+            <Link className="btn btn-ghost normal-case">Globe</Link>
+          </li>
+        </ul>
       </div>
     </div>
   );
