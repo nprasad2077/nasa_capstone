@@ -32,7 +32,16 @@ const ASOD = () => {
 
   // If media type is video, set DOM element to video, if picture then set to Img. (re)executes when ASOD loads in.
   useEffect(() => {
-    if (asod.media_type === "video") {
+    if (!asod.media_type) {
+      setMedia(
+        <img
+          src="https://cdn.mos.cms.futurecdn.net/PezBzd9Fehsq9XWgWMauVV-970-80.jpg.webp"
+          alt="ASOD"
+          className="rounded-xl"
+          title="ASOD Image"
+        />
+      );
+    } else if (asod.media_type === "video") {
       setMedia(
         <iframe
           width="720"
@@ -97,6 +106,8 @@ const ASOD = () => {
     }
   };
 
+  console.log(asod.url);
+
   return (
     <div className="card bg-base-100 text-neutral-content">
       <h1 className="text-center font-bold antialiased text-3xl mt-4">
@@ -104,18 +115,44 @@ const ASOD = () => {
       </h1>
       <figure className="px-10 pt-10">{media}</figure>
       <div className="card-body items-center text-center">
-        <p>{asod.explanation}</p>
-        <p className="my-4">
+        <p>
+          {asod.explanation ? (
+            asod.explanation
+          ) : (
+            <div className="flex flex-col items-center justify-center gap-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-16 h-16"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                />
+              </svg>
+              <p>
+                The ASOD server is temporarily down due to maintenance. Please
+                enjoy this image of Neptune until the servers come back online.
+              </p>
+            </div>
+          )}
+        </p>
+        <p className="mt-6 text-xs">
           NASA Astronomy Picture of the Day: Each day, a different image of our
           fascinating universe is featured, along with a brief statement written
-          by a professional astronomer.
+          by a professional astronomer. Click the save button below to post this photo the favorites wall.
         </p>
       </div>
-      <div className="self-center p-4">
+      <div className="self-center pb-4">
         <button
           onClick={saveButton}
           className="btn btn-neuttral myButton"
           data-theme="night"
+          disabled={!asod.hdurl ? true : false}
         >
           ❤️
         </button>
