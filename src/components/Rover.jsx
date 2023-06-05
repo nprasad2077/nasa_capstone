@@ -91,50 +91,50 @@ const Rover = () => {
       <h2 className="text-center font-bold antialiased text-3xl mt-4 text-orange-500">
         Mars Rover
       </h2>
-      <div className="h-auto w-full max-w-720px p-10">
+      <div className="h-auto w-full max-w-[720px]  p-10">
         {/* 3D Mars Rover model */}
-        <div className="w-full h-[720px] relative object-cover flex-grow">
+       
           <iframe
             title="Perseverance Rover 3D model"
-            className="absolute top-0 left-0 w-full h-full object-contain"
+            className="w-full h-[420px]"
             src="https://mars.nasa.gov/layout/embed/model/?s=6"
             allowFullScreen
           ></iframe>
-        </div>
+        
 
-        <div className="flex flex-row text-center items-center justify-center gap-2 p-4 mb-6">
+        <div className="flex flex-row flex-wrap text-center items-center justify-center gap-2 p-4 mb-6">
           <button
             onClick={roverClick}
             name="FHAZ"
-            className="btn btn-outline btn-info"
+            className="btn btn-outline btn-info object-contain"
           >
             FHAZ CAM
           </button>
           <button
             onClick={roverClick}
             name="NAVCAM"
-            className="btn btn-outline btn-success"
+            className="btn btn-outline btn-success object-contain"
           >
             NAVCAM
           </button>
           <button
             onClick={roverClick}
             name="CHEMCAM"
-            className="btn btn-outline btn-warning"
+            className="btn btn-outline btn-warning object-contain"
           >
             CHEMCAM
           </button>
           <button
             onClick={roverClick}
             name="MAST"
-            className="btn btn-outline btn-error"
+            className="btn btn-outline btn-error object-contain"
           >
             MAST CAM
           </button>
         </div>
         {imageDisplay && (
           <div className="visible">
-            <div className="carousel-container">
+            <div className="carousel-container flex flex-col">
               <ImageGallery
                 items={images}
                 autoPlay={false}
@@ -143,7 +143,7 @@ const Rover = () => {
               />
               <button
                 onClick={hideButton}
-                className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md w-1/2 self-center my-10"
+                className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md w-1/2 self-center my-6"
                 data-theme="night"
               >
                 HIDE

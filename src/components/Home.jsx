@@ -22,7 +22,7 @@ const Home = () => {
       </div>
 
       {/* Second Row */}
-      <div className="flex flex-col md:flex-row justify-around items-star mx-4 pb-2">
+      <div className="flex flex-col md:flex-row justify-around items-start mx-4 pb-2">
         <div className="w-full md:w-1/2 p-4">
           <Earth />
         </div>
