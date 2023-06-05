@@ -93,16 +93,15 @@ const Rover = () => {
       </h2>
       <div className="h-auto w-full max-w-[720px]  p-10">
         {/* 3D Mars Rover model */}
-       
-          <iframe
-            title="Perseverance Rover 3D model"
-            className="w-full h-[420px]"
-            src="https://mars.nasa.gov/layout/embed/model/?s=6"
-            allowFullScreen
-          ></iframe>
-        
 
-        <div className="flex flex-row flex-wrap text-center items-center justify-center gap-2 p-4 mb-6">
+        <iframe
+          title="Perseverance Rover 3D model"
+          className="w-full h-[420px]"
+          src="https://mars.nasa.gov/layout/embed/model/?s=6"
+          allowFullScreen
+        ></iframe>
+
+        <div className="flex flex-row flex-wrap text-center items-center justify-center gap-2 p-4 my-4">
           <button
             onClick={roverClick}
             name="FHAZ"
@@ -143,7 +142,7 @@ const Rover = () => {
               />
               <button
                 onClick={hideButton}
-                className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md w-1/2 self-center my-6"
+                className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md w-1/2 self-center mt-6"
                 data-theme="night"
               >
                 HIDE

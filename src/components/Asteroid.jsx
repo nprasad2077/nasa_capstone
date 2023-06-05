@@ -52,8 +52,8 @@ const Asteroid = () => {
       <h1 className="text-center font-bold antialiased text-3xl mt-4">
         Asteroid Watch
       </h1>
-      <div className="card-body items-center text-center">
-        <table className="table table-zebra w-full text-center items-center justify-center">
+      <div className="card-body items-center text-center object-contain overflow-x-auto">
+        <table className="table table-zebra w-auto text-center items-center justify-center object-contain">
           {/* head */}
           <thead>
             <tr>
