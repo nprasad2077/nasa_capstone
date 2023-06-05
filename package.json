@@ -13,6 +13,8 @@
     "cesium": "^1.106.1",
     "daisyui": "^2.52.0",
     "dotenv": "^16.1.0",
+    "flowbite": "^1.6.5",
+    "flowbite-react": "^0.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-image-gallery": "^1.2.11",

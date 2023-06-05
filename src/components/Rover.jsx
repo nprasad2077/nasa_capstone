@@ -61,19 +61,19 @@ const Rover = () => {
   const roverClick = (e) => {
     if (e.target.name === "FHAZ") {
       setImages(fhazCAM);
-      setImageDisplay(true)
+      setImageDisplay(true);
     }
     if (e.target.name === "MAST") {
       setImages(mastCAM);
-      setImageDisplay(true)
+      setImageDisplay(true);
     }
     if (e.target.name === "CHEMCAM") {
       setImages(chemCAM);
-      setImageDisplay(true)
+      setImageDisplay(true);
     }
     if (e.target.name === "NAVCAM") {
       setImages(navCAM);
-      setImageDisplay(true)
+      setImageDisplay(true);
     }
   };
 
@@ -146,6 +146,33 @@ const Rover = () => {
             </div>
           </div>
         )}
+    <div className="collapse bg-base-200">
+  <input type="radio" name="my-accordion-1" checked="checked" /> 
+  <div className="collapse-title text-xl font-medium">
+    Click to open this one and close others
+  </div>
+  <div className="collapse-content"> 
+    <p>hello</p>
+  </div>
+</div>
+<div className="collapse bg-base-200">
+  <input type="radio" name="my-accordion-1" /> 
+  <div className="collapse-title text-xl font-medium">
+    Click to open this one and close others
+  </div>
+  <div className="collapse-content"> 
+    <p>hello</p>
+  </div>
+</div>
+<div className="collapse bg-base-200">
+  <input type="radio" name="my-accordion-1" /> 
+  <div className="collapse-title text-xl font-medium">
+    Click to open this one and close others
+  </div>
+  <div className="collapse-content"> 
+    <p>hello</p>
+  </div>
+</div>
       </div>
     </div>
   );
