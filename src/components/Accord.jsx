@@ -3,7 +3,7 @@ import { Accordion } from "flowbite-react";
 
 const Accord = () => {
   return (
-    <div class="text-slate-200">
+    <div class="text-slate-200 m-4">
       <Accordion collapseAll>
         <Accordion.Panel>
           <Accordion.Title>What is Flowbite?</Accordion.Title>
@@ -101,6 +101,7 @@ const Accord = () => {
           </Accordion.Content>
         </Accordion.Panel>
       </Accordion>
+      
     </div>
   );
 };

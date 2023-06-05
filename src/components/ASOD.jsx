@@ -110,8 +110,8 @@ const ASOD = () => {
 
   return (
     <div className="card bg-base-100 text-neutral-content">
-      <h1 className="text-center font-bold antialiased text-3xl mt-4">
-        {asod.title}
+      <h1 className="font-bold antialiased text-3xl mt-4 text-center">
+        {asod.title ? asod.title : 'Neptune'}
       </h1>
       <figure className="px-10 pt-10">{media}</figure>
       <div className="card-body items-center text-center">
@@ -136,7 +136,7 @@ const ASOD = () => {
               </svg>
               <p>
                 The ASOD server is temporarily down due to maintenance. Please
-                enjoy this image of Neptune until the servers come back online.
+                enjoy this image of Neptune until the NASA servers come back online.
               </p>
             </div>
           )}
