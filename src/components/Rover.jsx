@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -16,6 +16,7 @@ const Rover = () => {
   const [images, setImages] = useState([]);
   // Conditional rendering to show carousel based on button click.
   const [imageDisplay, setImageDisplay] = useState(false);
+  const iframeContainerRef = useRef(null);
 
   // Fetch Curiosity rover data
   const getRover = async () => {
@@ -90,16 +91,17 @@ const Rover = () => {
       <h2 className="text-center font-bold antialiased text-3xl mt-4 text-orange-500">
         Mars Rover
       </h2>
-      <div className="mt-4">
+      <div className="h-auto w-full max-w-720px p-10">
         {/* 3D Mars Rover model */}
-        <iframe
-          title="Perseverance Rover 3D model"
-          className="object-scale-down p-4 m-2"
-          src="https://mars.nasa.gov/layout/embed/model/?s=6"
-          width="720"
-          height="450"
-          allowFullScreen
-        ></iframe>
+        <div className="w-full h-[720px] relative object-cover flex-grow">
+          <iframe
+            title="Perseverance Rover 3D model"
+            className="absolute top-0 left-0 w-full h-full object-contain"
+            src="https://mars.nasa.gov/layout/embed/model/?s=6"
+            allowFullScreen
+          ></iframe>
+        </div>
+
         <div className="flex flex-row text-center items-center justify-center gap-2 p-4 mb-6">
           <button
             onClick={roverClick}
