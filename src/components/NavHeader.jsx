@@ -48,9 +48,14 @@ const NavHeader = () => {
             </li>
           </ul>
         </div>
-        <div>
-          <Link to="/" class="btn btn-ghost normal-case text-4xl">
-            Planetarium
+        <div className="flex p-2">
+          <Link to="/" className="btn btn-ghost normal-case text-4xl">
+            <img
+              src="https://img.icons8.com/color/192/space-fighter.png"
+              className="w-[50px] pb-2"
+              alt="spaceship icon"
+            />
+            <p className="ml-4 ">Planetarium</p>
           </Link>
         </div>
       </div>

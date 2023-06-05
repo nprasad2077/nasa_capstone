@@ -54,7 +54,7 @@ const Asteroid = () => {
         Asteroid Watch
       </h1>
       <div className="card-body items-center text-center object-contain text-sm">
-        <div className="p-4">
+        <div className="p-4 object-contain">
           <table className="table table-auto w-full table-zebra text-center items-center justify-center object-contain m-auto self-center content-center max-w-screen-md">
             {/* head */}
             <thead>
@@ -69,7 +69,7 @@ const Asteroid = () => {
           </table>
         </div>
 
-        <div className="p-4 mt-12">
+        <div className="p-4 mt-">
           <p className="text-sm">
             NeoWs {"(Near Earth Object Web Service)"} is a RESTful web service
             for near earth asteroid information. The information above is based
