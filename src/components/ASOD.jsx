@@ -3,7 +3,9 @@ import axios from "axios";
 import "../styles/ASOD.css";
 
 const ASOD = () => {
+  // State to hold astronomy picture of the day data.
   const [asod, setAsod] = useState({});
+  //State to hold the html data used to render the ASOD image or video onto the card component. Contains logic to discern if media type is video or image.
   const [media, setMedia] = useState(null);
   // State to hold favorites image data
   const [favorites, setFavorites] = useState([]);
@@ -52,6 +54,7 @@ const ASOD = () => {
     }
   }, [asod]);
 
+  // Get list of favorite images for save button functionality.
   const getFavorites = async () => {
     try {
       const response = await axios.get(
@@ -68,6 +71,7 @@ const ASOD = () => {
     getFavorites();
   }, []);
 
+  // Filter the fetch data for the raw image links into an array.
   const images =
     favorites.length > 0
       ? favorites
@@ -77,11 +81,15 @@ const ASOD = () => {
 
   console.log([...images, asod.hdurl]);
 
+  // Save image to favorites button. This put request updates the favorite images gallery. It makes a put request by using the entire favorites list + adding today's ASOD to the list.
   const saveButton = () => {
     try {
       const response = axios.put(
         `https://calm-brushlands-38440.herokuapp.com/update`,
-        { _id: import.meta.env.VITE_APP_HERO_KEY, postPhoto: [...images, asod.hdurl] }
+        {
+          _id: import.meta.env.VITE_APP_HERO_KEY,
+          postPhoto: [...images, asod.hdurl],
+        }
       );
       console.log(response);
     } catch (err) {
