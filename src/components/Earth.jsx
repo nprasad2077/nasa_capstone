@@ -43,25 +43,27 @@ const Earth = () => {
     <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
       <div className="items-center justify-center">
         <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
-          <h2 className="text-center font-semibold antialiased text-3xl mt-4">
+          <h2 className="text-center font-bold antialiased text-3xl mt-4">
             Earth Polychromatic Imaging Camera {"(EPIC)"}
           </h2>
           <div className="px-10 pt-10">
           <div className="carousel-container">
-              <ImageGallery
+              {images ? <ImageGallery
                 items={images}
                 autoPlay={false}
                 showPlayButton={false}
                 showFullscreenButton={true}
-              />
+              /> : <progress data-theme='night' className="progress w-72"></progress> }
+              
             </div>
           </div>
-          <div className="card-body items-center text-center">
+          <div className="card-body items-center text-center text-sm mb-6">
             <p>
               These images were taken by NASA's EPIC camera onboard the NOAA DSCOVR
               spacecraft
             </p>
             <p>The most recent images are from: {date}</p>
+            
           </div>
         </div>
       </div>
