@@ -147,7 +147,7 @@ const ASOD = () => {
           by a professional astronomer. Click the save button below to post this photo the favorites wall.
         </p>
       </div>
-      <div className="self-center pb-4">
+      <div className="self-center pb-4 object-contain">
         <button
           onClick={saveButton}
           className="btn btn-neuttral myButton"

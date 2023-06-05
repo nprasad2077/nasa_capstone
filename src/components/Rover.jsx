@@ -4,6 +4,9 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "../styles/Rover.css";
 
+// Information Accordian
+import Accord from "./Accord";
+
 const Rover = () => {
   // State for fetching rover data
   const [rover, setRover] = useState({});
@@ -97,7 +100,7 @@ const Rover = () => {
           height="450"
           allowFullScreen
         ></iframe>
-        <div className="flex flex-row text-center items-center justify-center gap-2 p-4">
+        <div className="flex flex-row text-center items-center justify-center gap-2 p-4 mb-6">
           <button
             onClick={roverClick}
             name="FHAZ"
@@ -138,7 +141,7 @@ const Rover = () => {
               />
               <button
                 onClick={hideButton}
-                className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md my-4 w-1/2 self-center"
+                className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md my-4 w-1/2 self-center my-10"
                 data-theme="night"
               >
                 HIDE
@@ -146,33 +149,9 @@ const Rover = () => {
             </div>
           </div>
         )}
-    <div className="collapse bg-base-200">
-  <input type="radio" name="my-accordion-1" checked="checked" /> 
-  <div className="collapse-title text-xl font-medium">
-    Click to open this one and close others
-  </div>
-  <div className="collapse-content"> 
-    <p>hello</p>
-  </div>
-</div>
-<div className="collapse bg-base-200">
-  <input type="radio" name="my-accordion-1" /> 
-  <div className="collapse-title text-xl font-medium">
-    Click to open this one and close others
-  </div>
-  <div className="collapse-content"> 
-    <p>hello</p>
-  </div>
-</div>
-<div className="collapse bg-base-200">
-  <input type="radio" name="my-accordion-1" /> 
-  <div className="collapse-title text-xl font-medium">
-    Click to open this one and close others
-  </div>
-  <div className="collapse-content"> 
-    <p>hello</p>
-  </div>
-</div>
+        {/* <div>
+          <Accord />
+        </div> */}
       </div>
     </div>
   );
