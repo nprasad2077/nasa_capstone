@@ -45,7 +45,7 @@ const Earth = () => {
         Earth Polychromatic Imaging Camera {"(EPIC)"}
       </h2>
 
-      <div className="carousel-container">
+      <div className="carousel-container p-6">
         {images ? (
           <ImageGallery
             items={images}

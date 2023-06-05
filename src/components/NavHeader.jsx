@@ -48,18 +48,28 @@ const NavHeader = () => {
             </li>
           </ul>
         </div>
-        <Link to='/' class="btn btn-ghost normal-case text-4xl">Planetarium</Link>
+        <div>
+          <Link to="/" class="btn btn-ghost normal-case text-4xl">
+            Planetarium
+          </Link>
+        </div>
       </div>
       <div class="navbar-end">
         <ul className="flex flex-row">
           <li>
-            <Link to='/globe' className="btn btn-ghost normal-case">Globe</Link>
+            <Link to="/globe" className="btn btn-ghost normal-case">
+              Globe
+            </Link>
           </li>
           <li>
-            <Link to='/favorites' className="btn btn-ghost normal-case">Favorites</Link>
+            <Link to="/favorites" className="btn btn-ghost normal-case">
+              Favorites
+            </Link>
           </li>
           <li>
-            <Link to='/media' className="btn btn-ghost normal-case">Media Library</Link>
+            <Link to="/media" className="btn btn-ghost normal-case">
+              Media Library
+            </Link>
           </li>
         </ul>
       </div>
