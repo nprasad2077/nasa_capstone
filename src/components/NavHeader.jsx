@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavHeader = () => {
   return (
     <div class="navbar bg-base-100">
-      <div class="navbar-start">
+      <div class="navbar-start my-2">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
             <svg
@@ -23,10 +24,10 @@ const NavHeader = () => {
           </label>
           <ul
             tabindex="0"
-            class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            class="menu menu-sm dropdown-content mt-3 p-z shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <a>Globe</a>
             </li>
             <li>
               <a>Parent</a>
@@ -40,37 +41,27 @@ const NavHeader = () => {
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>Favorites</a>
+            </li>
+            <li>
+              <a>Media Library</a>
             </li>
           </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-2xl">Planetarium</a>
-      </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          {/* <li tabindex="0">
-            <details>
-              <summary>Parent</summary>
-              <ul class="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li> */}
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+        <Link to='/' class="btn btn-ghost normal-case text-4xl">Planetarium</Link>
       </div>
       <div class="navbar-end">
-        {/* <a class="btn">Button</a> */}
+        <ul className="flex flex-row">
+          <li>
+            <Link to='/globe' className="btn btn-ghost normal-case">Globe</Link>
+          </li>
+          <li>
+            <Link to='/favorites' className="btn btn-ghost normal-case">Favorites</Link>
+          </li>
+          <li>
+            <Link to='/media' className="btn btn-ghost normal-case">Media Library</Link>
+          </li>
+        </ul>
       </div>
     </div>
   );

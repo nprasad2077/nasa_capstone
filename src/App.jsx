@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 // Components
-import ASOD from "./components/ASOD";
-import Asteroid from "./components/Asteroid";
-import Rover from "./components/Rover";
-import Earth from "./components/Earth";
-import NavHeader from "./components/NavHeader"
+import NavHeader from "./components/NavHeader";
+import Globe from "./components/Globe";
+import Favorites from "./components/Favorites";
+import MediaPlayer from "./components/MediaPlayer";
+import Home from './components/Home'
 
 const App = () => {
   return (
@@ -14,30 +14,15 @@ const App = () => {
       data-theme="night"
       className="bg-neutral text-neutral-content min-h-screen"
     >
-      <div>
-        {/* <h1 className="text-5xl font-bold text-center p-4">Planetarium</h1> */}
-        <NavHeader />
-      </div>
+      <NavHeader />
 
-      {/* First Row */}
-      <div className="mx-auto my-auto p-4 w-full flex flex-row gap-4 mt-4">
-        <div className="basis-1/2">
-          <ASOD />
-        </div>
-        <div className="basis-1/2">
-          <Rover />
-        </div>
-      </div>
-
-      {/* Second Row */}
-      <div className="mx-auto my-auto p-4 w-full flex flex-row gap-4">
-        <div className="basis-1/2">
-          <Earth />
-        </div>
-        <div className="basis-1/2">
-          <Asteroid />
-        </div>
-      </div>
+      {/* Routes*/}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path="/globe" element={<Globe />} />
+        <Route path="/media" element={<MediaPlayer />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
     </div>
   );
 };

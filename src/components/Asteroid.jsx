@@ -24,6 +24,7 @@ const Asteroid = () => {
     getAsteroid();
   }, []);
 
+  // Get asteroid objects for today's date.
   const asteroids =
     neo["near_earth_objects"] && neo["near_earth_objects"][today];
 
@@ -47,8 +48,8 @@ const Asteroid = () => {
     });
 
   return (
-    <div className="card bg-base-100 text-neutral-content">
-      <h1 className="text-center font-semibold antialiased text-3xl mt-4">
+    <div className="card bg-base-100 text-neutral-content mx-auto w-full">
+      <h1 className="text-center font-bold antialiased text-3xl mt-4">
         Asteroid Watch
       </h1>
       <div className="card-body items-center text-center">
@@ -64,6 +65,9 @@ const Asteroid = () => {
           </thead>
           <tbody>{asteroidTable}</tbody>
         </table>
+        <div className="p-4 mt-12">
+          <p className="text-sm">NeoWs {'(Near Earth Object Web Service)'} is a RESTful web service for near earth asteroid information. The information above is based on today's date. All data is from the NASA JPL Asteroid team.</p>
+        </div>
       </div>
     </div>
   );
