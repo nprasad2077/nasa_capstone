@@ -141,7 +141,7 @@ const Rover = () => {
               />
               <button
                 onClick={hideButton}
-                className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md my-4 w-1/2 self-center my-10"
+                className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md w-1/2 self-center my-10"
                 data-theme="night"
               >
                 HIDE

@@ -65,6 +65,9 @@ const Asteroid = () => {
           </thead>
           <tbody>{asteroidTable}</tbody>
         </table>
+        <div className="p-4 mt-12">
+          <p className="text-sm">NeoWs {'(Near Earth Object Web Service)'} is a RESTful web service for near earth asteroid information. The information above is based on today's date. All data is from the NASA JPL Asteroid team.</p>
+        </div>
       </div>
     </div>
   );
