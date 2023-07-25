@@ -11,8 +11,10 @@ const Earth = () => {
     .slice(0, 10);
   const regex = /-/gi;
   let date = epicDate.replace(regex, "/");
+  const [enhancedDate, setEnhancedDate] = useState([])
   const [earth, setEarth] = useState([]);
   const [images, setImages] = useState([]);
+  const [enhanced, setEnhanced] = useState([])
 
   // Fetch earth images by date.
   const getEarth = async () => {
@@ -26,19 +28,45 @@ const Earth = () => {
     }
   };
 
+  const getEarthEnhanched = async () => {
+    try {
+      const response = await axios.get('https://epic.gsfc.nasa.gov/api/enhanced/all')
+      const responseData = await axios.get(`https://epic.gsfc.nasa.gov/api/enhanced/date/${response.data[0].date}`)
+      setEnhancedDate(response.data[0].date)
+      setEnhanced(responseData.data)
+    } catch (err){
+      console.log(err);
+    }
+  }
+
   useEffect(() => {
-    getEarth();
+    // getEarth();
+    getEarthEnhanched()
   }, []);
 
   // Map out images in a data structure suitable for react-image-gallery.
-  useEffect(() => {
-    const imagesData = earth.map((img) => ({
-      original: `https://epic.gsfc.nasa.gov/archive/natural/${date}/png/${img.image}.png`,
-      thumbnail: `https://epic.gsfc.nasa.gov/archive/natural/${date}/png/${img.image}.png`,
-    }));
-    setImages(imagesData);
-  }, [earth, date]);
+  // useEffect(() => {
+  //   const imagesData = earth.map((img) => ({
+  //     original: `https://epic.gsfc.nasa.gov/archive/natural/${date}/png/${img.image}.png`,
+  //     thumbnail: `https://epic.gsfc.nasa.gov/archive/natural/${date}/png/${img.image}.png`,
+  //   }));
+  //   setImages(imagesData);
+  // }, [earth, date]);
 
+  useEffect(() => {
+    const imagesData = enhanced.map((img) => {
+      // Get the date in a format suitable for the API call
+      const enhancedDateFormatted = img.date.substring(0,10).replace(/-/g, "/");
+      
+      return {
+        original: `https://epic.gsfc.nasa.gov/archive/enhanced/${enhancedDateFormatted}/png/${img.image}.png`,
+        thumbnail: `https://epic.gsfc.nasa.gov/archive/enhanced/${enhancedDateFormatted}/png/${img.image}.png`
+      };
+    });
+  
+    setImages(imagesData);
+  }, [enhanced]);
+  
   return (
     <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
       <h2 className="text-center font-bold antialiased text-3xl mt-4">
@@ -63,7 +91,7 @@ const Earth = () => {
           These images were taken by NASA's EPIC camera onboard the NOAA DSCOVR
           spacecraft
         </p>
-        <p>The most recent images are from: {date}</p>
+        <p>The most recent images are from: {enhancedDate}</p>
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ const NavHeader = () => {
         <div className="flex p-2">
           <Link to="/" className="btn btn-ghost normal-case text-4xl">
             <img
-              src="https://img.icons8.com/color/192/space-fighter.png"
+              src="space-fighter.png"
               className="w-[50px] pb-2"
               alt="spaceship icon"
             />

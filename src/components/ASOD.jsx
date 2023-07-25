@@ -88,7 +88,7 @@ const ASOD = () => {
           .postPhoto.map((img, i) => img)
       : [];
 
-  console.log([...images, asod.hdurl]);
+  // console.log([...images, asod.hdurl]);
 
   // Save image to favorites button. This put request updates the favorite images gallery. It makes a put request by using the entire favorites list + adding today's ASOD to the list.
   const saveButton = () => {
@@ -106,7 +106,7 @@ const ASOD = () => {
     }
   };
 
-  console.log(asod.url);
+  // console.log(asod.url);
 
   return (
     <div className="card bg-base-100 text-neutral-content">
