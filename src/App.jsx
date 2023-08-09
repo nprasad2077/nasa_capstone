@@ -7,6 +7,7 @@ import Globe from "./components/Globe";
 import Favorites from "./components/Favorites";
 import MediaPlayer from "./components/MediaPlayer";
 import Home from './components/Home'
+import NewGlobe from './components/NewGlobe.jsx'
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
       {/* Routes*/}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path="/globe" element={<Globe />} />
+        <Route path="/globe" element={<NewGlobe />} />
         <Route path="/media" element={<MediaPlayer />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>

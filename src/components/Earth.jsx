@@ -5,28 +5,10 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "../styles/Earth.css";
 
 const Earth = () => {
-  // Get yesterday's date in a format suitable for the API call.
-  let epicDate = ((d) => new Date(d.setDate(d.getDate() - 2)))(new Date())
-    .toISOString()
-    .slice(0, 10);
-  const regex = /-/gi;
-  let date = epicDate.replace(regex, "/");
   const [enhancedDate, setEnhancedDate] = useState([])
   const [earth, setEarth] = useState([]);
   const [images, setImages] = useState([]);
   const [enhanced, setEnhanced] = useState([])
-
-  // Fetch earth images by date.
-  const getEarth = async () => {
-    try {
-      const response = await axios.get(
-        `https://epic.gsfc.nasa.gov/api/natural/date/${epicDate}`
-      );
-      setEarth(response.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const getEarthEnhanched = async () => {
     try {
@@ -40,19 +22,10 @@ const Earth = () => {
   }
 
   useEffect(() => {
-    // getEarth();
     getEarthEnhanched()
   }, []);
 
   // Map out images in a data structure suitable for react-image-gallery.
-  // useEffect(() => {
-  //   const imagesData = earth.map((img) => ({
-  //     original: `https://epic.gsfc.nasa.gov/archive/natural/${date}/png/${img.image}.png`,
-  //     thumbnail: `https://epic.gsfc.nasa.gov/archive/natural/${date}/png/${img.image}.png`,
-  //   }));
-  //   setImages(imagesData);
-  // }, [earth, date]);
-
   useEffect(() => {
     const imagesData = enhanced.map((img) => {
       // Get the date in a format suitable for the API call
