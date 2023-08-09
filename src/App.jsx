@@ -7,7 +7,7 @@ import Globe from "./components/Globe";
 import Favorites from "./components/Favorites";
 import MediaPlayer from "./components/MediaPlayer";
 import Home from './components/Home'
-import NewGlobe from "./components/newGlobe";
+import NewGlobe from './components/NewGlobe.jsx'
 
 const App = () => {
   return (
