@@ -17,8 +17,15 @@ const MediaPlayer = () => {
   const fetchMediaFile = async (collectionUrl) => {
     try {
       const result = await axios.get(collectionUrl);
+      console.log(result);
       if (Array.isArray(result.data)) {
-        setSelectedMediaUrl(result.data[0]); // Assuming the first item is the media file.
+        // Filter the array to find the "-orig.mp4" file.
+        const mp4File = result.data.find(item => item.endsWith("orig.mp4"));
+        if (mp4File) {
+          setSelectedMediaUrl(mp4File);
+        } else {
+          setError("No MP4 file found in the collection");
+        }
       } else {
         setError("Unexpected data structure in collection.json");
       }
@@ -26,6 +33,7 @@ const MediaPlayer = () => {
       setError(`Error fetching media file: ${err}`);
     }
   };
+  
 
   const handleImageClick = (collectionUrl) => {
     fetchMediaFile(collectionUrl);
@@ -48,13 +56,17 @@ const MediaPlayer = () => {
     }
   };
 
+  console.log(mediaList);
+  console.log(selectedMediaUrl);
+
   return (
-    <div>
+    <div data-theme="business">
       <input
         type="text"
         value={keyword}
         onChange={handleInputChange}
         placeholder="Search keyword"
+        className="input input-bordered input-accent w-full max-w-xs"
       />
       <button onClick={handleSearch}>Search</button>
       {isLoading && <p>Loading...</p>}
