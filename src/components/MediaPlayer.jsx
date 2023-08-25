@@ -67,16 +67,20 @@ const MediaPlayer = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 flex-col">
+      <h1 className="text-5xl text-center">NASA Media Player</h1>
+      <h3 className="text-xl text-center mt-4">
+        Search for your favorite video topics!
+      </h3>
       <div className="flex justify-between items-center mb-4">
         <input
           type="text"
           value={keyword}
           onChange={handleInputChange}
           placeholder="Search keyword"
-          className="input input-bordered input-accent w-2/3"
+          className="input input-bordered input-accent flex-grow"
         />
-        <button onClick={handleSearch} className="btn btn-accent ml-4">
+        <button onClick={handleSearch} className="btn btn-accent flex-shrink">
           Search
         </button>
       </div>
