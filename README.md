@@ -11,6 +11,13 @@
   - [Directory Structure](#directory-structure)
     - [`assets`](#assets)
     - [`components`](#components)
+      - [ASOD.jsx Component](#asodjsx-component)
+        - [Description](#description)
+        - [State Variables](#state-variables)
+        - [Functions](#functions)
+        - [Usage](#usage-1)
+        - [Props](#props)
+        - [Dependencies](#dependencies)
     - [`styles`](#styles)
     - [`App.css`](#appcss)
     - [`App.jsx`](#appjsx)
@@ -64,6 +71,50 @@ Contains initial Vite setup files.
 ### `components`
 
 Contains files related to the media player's styling.
+
+#### ASOD.jsx Component
+
+##### Description
+
+The `ASOD.jsx` component is responsible for displaying NASA's Astronomy Picture of the Day (ASOD). It fetches the ASOD data and renders it as either an image or a video, depending on the media type. The component also allows users to save the current ASOD to their list of favorites.
+
+##### State Variables
+
+- `asod`: Holds the ASOD data.
+- `media`: Holds the HTML for rendering the ASOD.
+- `favorites`: Holds the list of favorite images.
+- `loading`: Manages the loading state.
+
+##### Functions
+
+- `getAsod()`: Fetches ASOD data.
+- `getFavorites()`: Fetches the list of favorite images.
+- `saveButton()`: Saves the current ASOD to favorites.
+
+##### Usage
+
+This component is used within the main application to display the ASOD. It is a self-contained unit that manages its own state and API calls.
+
+```javascript
+import ASOD from "./components/ASOD";
+
+function App() {
+  return (
+    <div>
+      <ASOD />
+    </div>
+  );
+}
+```
+
+##### Props
+
+None.
+
+##### Dependencies
+
+- React
+- Axios
 
 ### `styles`
 
