@@ -30,11 +30,11 @@ const Favorites = () => {
   const images =
     favorites.length > 0
       ? favorites
-          .filter((img) => img.name === "ASOD")[0]
-          .postPhoto.map((img, i) => ({
-            src: img,
-            alt: `Image ${i + 1}`,
-          }))
+        .filter((img) => img.name === "ASOD")[0]
+        .postPhoto.map((img, i) => ({
+          src: img,
+          alt: `Image ${i + 1}`,
+        }))
       : [];
 
   // Loading progress bar

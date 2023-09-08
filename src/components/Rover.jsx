@@ -22,8 +22,7 @@ const Rover = () => {
   const getRover = async () => {
     try {
       const response = await axios.get(
-        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&api_key=${
-          import.meta.env.VITE_APP_NASA_API_KEY
+        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&api_key=${import.meta.env.VITE_APP_NASA_API_KEY
         }`
       );
       setRover(response.data);
