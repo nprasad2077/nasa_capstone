@@ -21,6 +21,7 @@
     "react-image-gallery": "^1.2.11",
     "react-router-dom": "^6.11.2",
     "react-visual-grid": "^0.9.3",
+    "readme-md-generator": "^1.0.0",
     "resium": "^1.16.1"
   },
   "devDependencies": {

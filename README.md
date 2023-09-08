@@ -1,4 +1,26 @@
-# NASA Capstone Project V2
+# Welcome to Nasa Capstone 👋
+![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
+
+> NASA API Explorer
+
+## Install
+
+```sh
+npm install
+```
+
+## Usage
+
+```sh
+npm run dev
+```
+
+## Author
+
+👤 **Nikhil Prasad**
+
+* Website: https://nikhil.engineer/
+* GitHub: [@nprasad2077](https://github.com/nprasad2077)
 
 ## Table of Contents
 
@@ -48,7 +70,7 @@ npm install
 To start the application, run:
 
 ```bash
-npm start
+npm run dev
 ```
 
 ## Directory Structure
