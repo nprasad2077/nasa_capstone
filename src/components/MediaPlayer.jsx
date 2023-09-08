@@ -14,6 +14,12 @@ const MediaPlayer = () => {
     setKeyword(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   const fetchMediaFile = async (collectionUrl) => {
     try {
       const result = await axios.get(collectionUrl);
@@ -61,8 +67,8 @@ const MediaPlayer = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 flex-col">
-      <h1 className="text-5xl text-center">NASA Media Player</h1>
+    <div className="container mx-auto p-4 flex-col py-8">
+      <h1 className="text-5xl text-center subpixel-antialiased font-semibold tracking-wide">NASA Media Player</h1>
       <h3 className="text-xl text-center mt-4">
         Search for your favorite video topics!
       </h3>
@@ -71,6 +77,7 @@ const MediaPlayer = () => {
           type="text"
           value={keyword}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
           placeholder="Search keyword"
           className="border border-gray-300 focus:outline-none px-4 py-2 rounded flex-grow"
         />
@@ -84,7 +91,7 @@ const MediaPlayer = () => {
         </div>
       )}
       {error && <div className="text-center text-red-500">{error}</div>}
-      <div className="grid grid-cols-4 gap-4 m-10">
+      <div className="grid grid-cols-4 gap-4 mb-10">
         {mediaList.map((item, index) => (
           <div
             key={index}
@@ -100,9 +107,9 @@ const MediaPlayer = () => {
         ))}
       </div>
       {selectedMediaUrl && (
-          <video controls autoPlay className="max-w-full max-h-full mt-6" src={selectedMediaUrl} type='video/mp4'>
-            Your browser does not support the video tag.
-          </video>
+        <video controls autoPlay className="max-w-full max-h-full mt-6" src={selectedMediaUrl} type='video/mp4'>
+          Your browser does not support the video tag.
+        </video>
       )}
     </div>
   );
