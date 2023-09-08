@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import { inject } from "@vercel/analytics/*";
+import { inject } from "@vercel/analytics";
 inject()
 
 // Components
