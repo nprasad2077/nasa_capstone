@@ -16,8 +16,7 @@ const ASOD = () => {
   const getAsod = async () => {
     try {
       const response = await axios.get(
-        `https://api.nasa.gov/planetary/apod?api_key=${
-          import.meta.env.VITE_APP_NASA_API_KEY
+        `https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_APP_NASA_API_KEY
         }`
       );
       setAsod(response.data);
@@ -84,8 +83,8 @@ const ASOD = () => {
   const images =
     favorites.length > 0
       ? favorites
-          .filter((img) => img.name === "ASOD")[0]
-          .postPhoto.map((img, i) => img)
+        .filter((img) => img.name === "ASOD")[0]
+        .postPhoto.map((img, i) => img)
       : [];
 
   // console.log([...images, asod.hdurl]);
