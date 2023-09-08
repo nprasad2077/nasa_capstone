@@ -101,7 +101,7 @@ const Accord = () => {
           </Accordion.Content>
         </Accordion.Panel>
       </Accordion>
-      
+
     </div>
   );
 };

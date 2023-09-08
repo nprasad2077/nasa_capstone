@@ -12,8 +12,7 @@ const Asteroid = () => {
   const getAsteroid = async () => {
     try {
       const response = await axios.get(
-        `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${today}&api_key=${
-          import.meta.env.VITE_APP_NASA_API_KEY
+        `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${today}&api_key=${import.meta.env.VITE_APP_NASA_API_KEY
         }`
       );
       setNeo(response.data);

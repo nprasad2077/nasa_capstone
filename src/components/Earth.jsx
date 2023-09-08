@@ -16,7 +16,7 @@ const Earth = () => {
       const responseData = await axios.get(`https://epic.gsfc.nasa.gov/api/enhanced/date/${response.data[0].date}`)
       setEnhancedDate(response.data[0].date)
       setEnhanced(responseData.data)
-    } catch (err){
+    } catch (err) {
       console.log(err);
     }
   }
@@ -29,17 +29,17 @@ const Earth = () => {
   useEffect(() => {
     const imagesData = enhanced.map((img) => {
       // Get the date in a format suitable for the API call
-      const enhancedDateFormatted = img.date.substring(0,10).replace(/-/g, "/");
-      
+      const enhancedDateFormatted = img.date.substring(0, 10).replace(/-/g, "/");
+
       return {
         original: `https://epic.gsfc.nasa.gov/archive/enhanced/${enhancedDateFormatted}/png/${img.image}.png`,
         thumbnail: `https://epic.gsfc.nasa.gov/archive/enhanced/${enhancedDateFormatted}/png/${img.image}.png`
       };
     });
-  
+
     setImages(imagesData);
   }, [enhanced]);
-  
+
   return (
     <div className="card bg-base-100 text-neutral-content flex flex-col items-center">
       <h2 className="text-center font-bold antialiased text-3xl mt-4">
