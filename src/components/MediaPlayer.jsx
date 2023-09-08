@@ -100,8 +100,7 @@ const MediaPlayer = () => {
         ))}
       </div>
       {selectedMediaUrl && (
-          <video controls autoPlay className="max-w-full max-h-full mt-6">
-            <source src={selectedMediaUrl} type="video/mp4" />
+          <video controls autoPlay className="max-w-full max-h-full mt-6" src={selectedMediaUrl} type='video/mp4'>
             Your browser does not support the video tag.
           </video>
       )}
